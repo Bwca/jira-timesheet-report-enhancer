@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Jira Timesheet Report Enhancer",
+  "version": "1.0",
+  "description": "Makes Jira Time Sheet Report page a bit better.",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*/TimesheetReport.jspa*"
+      ],
+      "js": [
+        "better-timesheet.js"
+      ]
+    }
+  ]
+}
