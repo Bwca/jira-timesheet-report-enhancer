@@ -64,8 +64,11 @@ function parseToHoursMinutes() {
     rows.forEach(row => {
         const cells = Array.from(row.querySelectorAll('td'));
         cells.forEach(cell => {
-            cell.textContent = cell.textContent.trim().replace(/(\d+)(\.\d{1,3})h/, ($1, $2, $3) =>
-                `${$2}h ${Math.trunc($3 * 60)}m`);
+            const textContent = cell.textContent.trim();
+            if (/(\d+)(\.\d{1,3})h/.test(textContent)) {
+                cell.textContent = cell.textContent.replace(/(\d+)(\.\d{1,3})h/, ($1, $2, $3) =>
+                    `${$2}h ${Math.trunc($3 * 60)}m`);
+            }
         })
     })
 
