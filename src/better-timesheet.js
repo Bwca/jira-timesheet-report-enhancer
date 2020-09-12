@@ -15,7 +15,7 @@ function setClickableTh(el, index) {
 
         if (el.style.color === activeColor) {
             el.style.color = defaultColor;
-            unsort();
+            removeRowBlur();
             return;
         }
 
@@ -28,7 +28,7 @@ function setClickableTh(el, index) {
     }
 }
 
-function unsort() {
+function removeRowBlur() {
     const rows = getBodyRows();
     rows.forEach(i => i.style.opacity = '1')
 }
@@ -37,7 +37,6 @@ function sortByDate(thIndex) {
     const rows = getBodyRows();
     rows.pop();
     const valueRowIndex = getCorrespondingBodyCell(thIndex);
-    console.log(rows);
 
     const headRows = [];
     const tailRows = [];
